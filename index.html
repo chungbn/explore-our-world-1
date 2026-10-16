@@ -223,6 +223,101 @@ button:focus-visible { outline: 3px solid var(--sky); outline-offset: 3px; }
 .opt.letter { min-height: 100px; font-family: var(--display); font-weight: 800; font-size: clamp(40px, 11vw, 60px); color: var(--sky); }
 .ml { font-size: clamp(36px, 10vw, 48px); }
 .notice { background: var(--bad-bg); border-radius: 14px; padding: 10px 14px; font-weight: 700; margin-bottom: 14px; }
+/* Bài kiểm tra: trình bày giống đề giấy — mỗi phần một tờ, khoanh A/B/C bằng cách chạm */
+.exam-cta { width: 100%; display: flex; align-items: center; gap: 14px; text-align: left; border: 0; border-radius: 22px; padding: 14px 16px; margin-bottom: 20px; background: var(--leaf); color: #fff; box-shadow: var(--shadow); }
+.exam-cta:active { transform: translateY(3px); box-shadow: none; }
+.exam-cta .ico { width: 56px; height: 56px; flex: none; border-radius: 16px; background: rgba(255,255,255,.22); display: grid; place-items: center; font-size: 32px; }
+.exam-cta b { font-family: var(--display); font-size: 22px; display: block; line-height: 1.1; }
+.exam-cta small { font-weight: 700; font-size: 14px; opacity: .92; }
+.exam-cta .go { margin-left: auto; font-size: 26px; font-weight: 800; }
+.picks { display: grid; grid-template-columns: repeat(auto-fill, minmax(min(100%, 150px), 1fr)); gap: 8px; margin-bottom: 18px; }
+.pick { text-align: left; border: 2px solid var(--line); background: var(--card); border-radius: 14px; padding: 8px 12px; box-shadow: var(--shadow); min-width: 0; }
+.pick b { font-family: var(--display); font-size: 18px; display: block; line-height: 1.15; }
+.pick small { display: block; color: var(--muted); font-weight: 700; font-size: 13px; overflow-wrap: anywhere; }
+.pick.inc { border-color: var(--sky); }
+.pick[aria-pressed="true"] { background: var(--sky); border-color: var(--sky); color: #fff; }
+.pick[aria-pressed="true"] small { color: #e3eeff; }
+.paper { background: var(--card); border-radius: 22px; padding: 18px 16px; box-shadow: var(--shadow); margin-bottom: 16px; }
+.plan { display: grid; grid-template-columns: repeat(auto-fill, minmax(min(100%, 220px), 1fr)); gap: 10px; margin-top: 10px; }
+.plan div { background: var(--bg); border-radius: 14px; padding: 10px 12px; font-size: 14px; font-weight: 700; color: var(--muted); }
+.plan b { display: block; color: var(--ink); font-family: var(--display); font-size: 18px; }
+.hist { display: grid; gap: 6px; }
+.hist div { display: flex; justify-content: space-between; gap: 10px; background: var(--card); border-radius: 12px; padding: 8px 12px; font-weight: 700; box-shadow: var(--shadow); }
+.hist b { font-variant-numeric: tabular-nums; white-space: nowrap; }
+.xhead { display: grid; gap: 14px; }
+.xhead h2 { font-size: clamp(28px, 7vw, 38px); color: var(--sky); }
+.xmeta { margin: 4px 0 0; color: var(--muted); font-weight: 700; font-size: 15px; line-height: 1.45; }
+.namebox { display: flex; align-items: center; gap: 8px; font-weight: 800; }
+.namebox input { flex: 1; min-width: 0; font-family: var(--display); font-size: 21px; font-weight: 700; border: 0; border-bottom: 2px dotted var(--muted); background: transparent; color: var(--ink); padding: 2px 4px; border-radius: 0; }
+.namebox input:focus { outline: none; border-bottom-color: var(--sky); }
+.scores { display: grid; grid-template-columns: repeat(auto-fit, minmax(100px, 1fr)); gap: 8px; }
+.sc { background: var(--bg); border-radius: 12px; padding: 8px 10px; }
+.sc small { display: block; color: var(--muted); font-weight: 800; font-size: 13px; }
+.sc b { font-family: var(--display); font-size: 22px; font-variant-numeric: tabular-nums; }
+.sc.tot { background: var(--sun); color: #1d2742; }
+.sc.tot small { color: #4a4220; }
+.result { text-align: center; background: var(--bg); border-radius: 16px; padding: 14px; }
+.result .bigstars { font-size: 44px; letter-spacing: 4px; }
+.result h3 { font-size: 28px; margin: 4px 0; }
+.result p { margin: 0; color: var(--muted); font-weight: 700; }
+.sec-h h3 { font-size: 26px; }
+.instr { font-weight: 800; margin: 8px 0 0; line-height: 1.4; }
+.instr .pts { color: var(--muted); white-space: nowrap; font-variant-numeric: tabular-nums; }
+.instr small { display: block; color: var(--muted); font-weight: 700; font-size: 14px; }
+.q { border-top: 2px dashed var(--line); padding-top: 14px; margin-top: 14px; display: grid; gap: 10px; }
+.q.ex { opacity: .7; }
+.qhead { display: flex; align-items: center; gap: 12px; min-width: 0; }
+.qn { flex: none; min-width: 30px; font-family: var(--display); font-weight: 800; font-size: 20px; color: var(--muted); font-variant-numeric: tabular-nums; }
+.qt { flex: 1; min-width: 0; font-family: var(--display); font-weight: 700; font-size: 21px; line-height: 1.25; overflow-wrap: anywhere; }
+.qt b { color: var(--tomato); font-size: 1.25em; }
+.qt.word { font-size: 30px; letter-spacing: 2px; }
+.qp { flex: none; width: 104px; height: 88px; border-radius: 16px; background: var(--bg); display: grid; place-items: center; font-size: 58px; overflow: hidden; }
+.exb { margin-left: auto; flex: none; background: var(--sun); color: #1d2742; border-radius: 99px; padding: 2px 10px; font-size: 13px; font-weight: 800; }
+.mk { margin-left: auto; flex: none; font-family: var(--display); font-weight: 800; font-size: 28px; }
+.mk.ok { color: var(--leaf); }
+.mk.no { color: var(--tomato); }
+.chs { display: grid; gap: 8px; }
+.chs.c3 { grid-template-columns: repeat(3, 1fr); }
+.chs.c2 { grid-template-columns: repeat(2, 1fr); max-width: 360px; }
+.chs.cl { grid-template-columns: repeat(auto-fill, minmax(44px, 1fr)); max-width: 380px; }
+.ch { display: flex; align-items: center; gap: 8px; min-width: 0; text-align: left; border: 3px solid var(--line); background: var(--card); border-radius: 16px; padding: 8px 10px; font-family: var(--display); font-weight: 700; font-size: 19px; line-height: 1.2; overflow-wrap: anywhere; position: relative; }
+.ch:disabled { cursor: default; color: var(--ink); -webkit-text-fill-color: currentColor; opacity: 1; }
+.ch .k { flex: none; width: 30px; height: 30px; border-radius: 50%; border: 2px solid var(--muted); display: grid; place-items: center; font-weight: 800; font-size: 15px; color: var(--muted); -webkit-text-fill-color: currentColor; }
+.ch[aria-pressed="true"] { border-color: var(--sky); }
+.ch[aria-pressed="true"] .k { background: var(--sky); border-color: var(--sky); color: #fff; }
+.ch.pico { justify-content: center; min-height: 96px; padding: 8px 4px; }
+.ch.pico .k { position: absolute; top: 6px; left: 6px; width: 26px; height: 26px; font-size: 13px; }
+.ch.pico .pic { font-size: 56px; }
+.ch.only { justify-content: center; padding: 6px 4px; }
+.ch.only .k { border: 0; width: auto; height: 28px; font-size: 20px; padding: 0 6px; border-radius: 10px; }
+.ch.big { justify-content: center; font-size: 30px; }
+.ch.right { border-color: var(--leaf); background: var(--ok-bg); }
+.ch.wrong { border-color: var(--tomato); background: var(--bad-bg); }
+.ansbox { display: grid; gap: 6px; background: var(--bg); border-radius: 16px; padding: 12px 14px; margin-top: 12px; font-family: var(--display); font-weight: 700; font-size: 19px; }
+.ansbox b { color: var(--sky); margin-right: 4px; }
+.blank { display: inline-block; min-width: .8em; border-bottom: 3px solid var(--sun); text-align: center; color: var(--sky); font-weight: 800; }
+.cnt { display: flex; flex-wrap: wrap; justify-content: center; align-content: center; font-size: 24px; padding: 4px; }
+.bdg { position: relative; display: inline-block; }
+.bdg i { position: absolute; right: -12px; bottom: -6px; font-style: normal; font-size: .45em; }
+.scene { position: relative; display: inline-block; }
+.scene > .t { position: absolute; left: 50%; top: 2%; transform: translateX(-50%); font-size: .48em; }
+.age { display: inline-flex; align-items: center; }
+.age b { font-family: var(--display); color: var(--sky); font-size: .75em; }
+.xfoot { display: flex; gap: 12px; justify-content: center; align-items: center; flex-wrap: wrap; margin-top: 8px; }
+@media (min-width: 620px) {
+  .q.words, .q.write { grid-template-columns: 170px 1fr; align-items: center; }
+  .q.ex.words, .q.ex.write { grid-template-columns: 170px 1fr; }
+}
+@media print {
+  :root:not(#p) { --bg: #fff; --card: #fff; --line: #999; --ink: #000; --muted: #333; --shadow: none; --sky: #1d4f9c; --ok-bg: #fff; --bad-bg: #fff; color-scheme: light; }
+  body { background: #fff; font-size: 14px; }
+  #app { max-width: none; padding: 0; }
+  .noprint { display: none !important; }
+  .paper { border: 1px solid #999; border-radius: 10px; padding: 10px 14px; margin-bottom: 10px; }
+  .q { break-inside: avoid; }
+  .q.ex { opacity: 1; }
+  .ch, .qp { border-width: 1px; }
+}
 @media (prefers-reduced-motion: reduce) { *, *::before, *::after { animation: none !important; transition: none !important; } .burst { display: none; } }
 </style>
 
@@ -476,6 +571,7 @@ function home() {
       <button class="btn toggle" id="t-slow" aria-pressed="${S.slow}"><span class="sw"></span>Đọc chậm</button>
     </div>
     ${hasTTS ? "" : `<div class="notice">Trình duyệt này không hỗ trợ đọc tiếng Anh. Hãy mở bằng Chrome hoặc Safari để nghe phát âm.</div>`}
+    <button class="exam-cta" id="exam-go"><span class="ico">📝</span><span><b>Làm bài kiểm tra</b><small>Đề thi thử tổng hợp cả 2 giáo trình, giống đề ở trường</small></span><span class="go" aria-hidden="true">→</span></button>
     <div class="section-label">Bài học</div>
     <div class="units">${C.units.map(card).join("")}</div>
     <div class="section-label" style="margin-top:22px">Ôn tập tổng hợp</div>
@@ -485,6 +581,7 @@ function home() {
   $app.querySelectorAll("[data-c]").forEach(b => b.onclick = () => { C = COURSES.find(c => c.key === b.dataset.c); store.set("course", C.key); go(home); });
   const tog = (id, key) => document.getElementById(id).onclick = e => { S[key] = !S[key]; store.set(key, S[key]); e.currentTarget.setAttribute("aria-pressed", S[key]); };
   tog("t-vi", "vi"); tog("t-slow", "slow");
+  document.getElementById("exam-go").onclick = () => go(examSetup);
 }
 
 function unitPage(u) {
@@ -823,6 +920,364 @@ function caseMem(u) {
     picks = [...picks, ...learned, ...later].slice(0, 6);
   }
   pairGame(u, "case", picks.map(l => ({ a: `<span class="ml">${l.L.toUpperCase()}</span>`, b: `<span class="ml">${l.L}</span>`, sayA: l.L.toUpperCase(), sayB: l.L.toUpperCase(), say: `${l.L.toUpperCase()}. ${l.words[0][0]}` })), () => caseMem(u));
+}
+
+/* ---------- Bài kiểm tra tổng hợp (theo khung đề Practice Test lớp 1 ở trường) ----------
+   Phonetics, Vocabulary, Writing: từ vựng của cả 2 sách. Grammar, Reading: mẫu câu Explore Our World + từ vựng cả 2 sách.
+   Kiến thức lấy từ đầu tới bài bé đang học; bài càng gần càng được ưu tiên (trọng số REC theo khoảng cách). */
+const NUMW = ["zero", "one", "two", "three", "four", "five", "six", "seven", "eight", "nine", "ten"];
+const cap = s => s[0].toUpperCase() + s.slice(1);
+const rnd = n => Math.floor(Math.random() * n);
+const one = a => a[rnd(a.length)];
+const REC = d => d <= 0 ? 5 : d === 1 ? 2.5 : d === 2 ? 1.5 : 1;
+function wpick(arr, wf) {
+  const ws = arr.map(x => Math.max(0, wf(x))), tot = ws.reduce((a, b) => a + b, 0);
+  if (!tot) return one(arr);
+  let r = Math.random() * tot;
+  for (let i = 0; i < arr.length; i++) { r -= ws[i]; if (r < 0) return arr[i]; }
+  return arr[arr.length - 1];
+}
+const EW = Object.fromEntries(UNITS.flatMap(u => u.words.map(w => [w[0], w[2]])));
+const SGL = Object.fromEntries(SG_LETTERS.flatMap(l => l.words.map(w => [w[0], l.L])));
+// Từ khó vẽ thành tranh rõ nghĩa (tính từ, động từ, từ trừu tượng) — không dùng làm câu hỏi tranh
+const NOPIC = new Set(["hello", "goodbye", "big", "small", "tall", "short", "old", "young", "parents", "jump", "feet", "up", "under", "quiet", "ill", "question", "eating"]);
+const NOTNOUN = new Set(["hello", "goodbye", "big", "small", "tall", "short", "old", "young", "cleaning", "cooking", "eating", "sleeping", "taking a bath", "watching TV", "jump", "run", "walk", "up", "under", "quiet", "ill", "zigzag", "long hair", "strong arms"]);
+const PLURAL_ONLY = new Set(["gloves", "pants", "shoes", "socks", "parents", "feet"]);
+const MASS = new Set(["rice", "soup", "milk", "tea", "water", "lemonade", "orange juice", "juice", "chicken", "hair", "paper", "yarn"]);
+const PEOPLE = new Set(["mother", "father", "sister", "brother", "grandmother", "grandfather", "king", "queen", "elf"]);
+const NOPLURAL = new Set(["sky", "sun", "moon", "river", "fish", "jellyfish", "bathroom", "bedroom", "dining room", "kitchen", "living room"]);
+// Nhóm từ có tranh na ná nhau: không để chung một câu hỏi kẻo có hai đáp án đúng
+const CONFUSE = [["bush", "leaf", "tree"], ["lemon", "lemonade"], ["juice", "orange juice"], ["clock", "watch"], ["hen", "bird", "chicken"], ["bear", "panda", "koala", "teddy bear"], ["doll", "teddy bear"], ["dog", "wolf", "fox"], ["gorilla", "monkey"], ["iguana", "alligator"], ["goat", "yak"], ["horse", "zebra"], ["sky", "cloud"], ["living room", "sofa"], ["bedroom", "sleeping"], ["bathroom", "taking a bath"], ["kitchen", "cooking"], ["dress", "skirt"], ["jacket", "vest", "shirt"], ["hair", "long hair"], ["car", "van", "truck", "bus"], ["insect", "worm", "ant"], ["cookie", "cake"], ["hand", "gloves"]];
+const GRP = {}; CONFUSE.forEach((g, i) => g.forEach(w => (GRP[w] = GRP[w] || []).push(i)));
+const clash = (a, b) => a.en === b.en || a.e === b.e || (GRP[a.en] || []).some(i => (GRP[b.en] || []).includes(i));
+const kind = x => x.e.startsWith("color:") ? "color" : x.e.startsWith("num:") ? "num" : NOTNOUN.has(x.en) ? "other" : PLURAL_ONLY.has(x.en) ? "pl" : MASS.has(x.en) ? "mass" : "noun";
+const an = w => (/^[aeiou]/.test(w) ? "an " : "a ") + w;
+const wrongAn = w => (/^[aeiou]/.test(w) ? "a " : "an ") + w;
+const IRR = { mouse: "mice", foot: "feet", leaf: "leaves", shelf: "shelves", wolf: "wolves", tomato: "tomatoes", volcano: "volcanoes" };
+function plural(w) {
+  const p = w.split(" "), l = p.pop();
+  return [...p, IRR[l] || (/(s|x|z|ch|sh)$/.test(l) ? l + "es" : /[^aeiou]y$/.test(l) ? l.slice(0, -1) + "ies" : l + "s")].join(" ");
+}
+const label = x => kind(x) === "noun" ? an(x.en) : x.en;
+const wear = w => PLURAL_ONLY.has(w) ? w : an(w);
+const isPic = x => !NOPIC.has(x.en);
+const isImg = x => isPic(x) && !/^(color|num):/.test(x.e);
+const isNoun = x => kind(x) === "noun" && isImg(x) && !PEOPLE.has(x.en) && !NOPLURAL.has(x.en);
+const isColor = x => kind(x) === "color";
+const FAM = { mother: "F", father: "M", sister: "F", brother: "M", grandmother: "F", grandfather: "M" };
+const isFam = x => typeof FAM[x.en] === "string";
+const he = g => g === "M" ? "he" : "she";
+const ACT4 = ["cleaning", "cooking", "sleeping", "taking a bath", "watching TV"];
+const ACT7 = { jump: "🤸", run: "🏃", walk: "🚶" };
+const CLOTHES = ["dress", "gloves", "jacket", "pants", "shirt", "shoes", "skirt", "socks", "hat"];
+const TOYS = ["ball", "bike", "car", "kite", "top", "train", "truck", "doll", "puzzle", "robot", "teddy bear"];
+const BODY = ["head", "hair", "eye", "ear", "nose", "mouth", "hand", "leg", "foot"];
+const FOOD_C = ["apple", "banana", "cookie", "egg", "sandwich"];
+const FOOD_M = ["chicken", "fish", "rice", "soup", "lemonade", "milk", "orange juice", "tea", "water"];
+const THINGS = { bird: "🐦", butterfly: "🦋" };
+const PLACES = { "in the tree": "🌳", "on the flower": "🌸", "in the sky": "svg:sky", "on the rock": "🪨" };
+const inL = l => x => l.includes(x.en);
+const P = {
+  one: x => pic(x.e),
+  many: (e, n) => `<span class="cnt">${Array(n).fill(pic(e)).join("")}</span>`,
+  badge: (e, b) => `<span class="bdg">${pic(e)}<i>${b}</i></span>`,
+  scene: (place, thing) => `<span class="scene">${pic(place)}<span class="t">${pic(thing)}</span></span>`,
+};
+
+function examCtx(eow, sg) {
+  const pool = new Map(), all = new Map();
+  const add = (m, w, wt) => { const c = m.get(w[0]); if (!c || c.wt < wt) m.set(w[0], { en: w[0], vi: w[1], e: w[2], wt }); };
+  UNITS.forEach((u, i) => u.words.forEach(w => { add(all, w, 0.3); if (i <= eow) add(pool, w, REC(eow - i)); }));
+  SG_UNITS.forEach((u, i) => u.letters.forEach(l => l.words.forEach(w => { add(all, w, 0.3); if (i < sg) add(pool, w, REC(sg - 1 - i)); })));
+  const used = new Map();
+  const c = { eow, sg, pool: [...pool.values()], all: [...all.values()], usedT: new Map(), usedL: new Map() };
+  // Lấy 1 từ theo trọng số bài gần; từ đã ra trong đề bị giảm mạnh để đề ít lặp. Hết từ phù hợp thì mượn từ ngoài phạm vi.
+  c.pick = (f, avoid = []) => {
+    const ok = x => f(x) && !avoid.some(a => clash(a, x));
+    let cand = c.pool.filter(ok);
+    if (!cand.length) cand = c.all.filter(ok);
+    const x = wpick(cand, x => x.wt * 0.15 ** (used.get(x.en) || 0));
+    used.set(x.en, (used.get(x.en) || 0) + 1);
+    return x;
+  };
+  c.pickN = (n, f, avoid) => { const out = []; for (let i = 0; i < n; i++) out.push(c.pick(f, [...avoid, ...out])); return out; };
+  return c;
+}
+function pickT(c, list) {
+  const ts = list.filter(t => t.u <= c.eow), per = {};
+  ts.forEach(t => per[t.u] = (per[t.u] || 0) + 1);
+  const t = wpick(ts, t => REC(c.eow - t.u) / per[t.u] * 0.3 ** (c.usedT.get(t) || 0));
+  c.usedT.set(t, (c.usedT.get(t) || 0) + 1);
+  return t;
+}
+
+/* Mẫu câu hỏi ngữ pháp theo từng unit Explore Our World: trả về câu hỏi, đáp án đúng và một đáp án sai (sai ngữ pháp hoặc sai nội dung tranh) */
+function thisThat(c, s, p) {
+  const x = c.pick(isNoun);
+  if (Math.random() < .5) return { pic: P.one(x), q: `What's ${s}?`, ok: `It's ${an(x.en)}.`, bad: one([`They're ${plural(x.en)}.`, `It's ${wrongAn(x.en)}.`]) };
+  return { pic: P.many(x.e, 3), q: `What are ${p}?`, ok: `They're ${plural(x.en)}.`, bad: one([`It's ${an(x.en)}.`, `They're ${x.en}.`]) };
+}
+const G = [
+  { u: 0, f: c => { const x = c.pick(isColor), y = c.pick(isColor, [x]); return { pic: P.one(x), q: "What color is it?", ok: `It's ${x.en}.`, bad: one([`It's ${y.en}.`, `They're ${x.en}.`]) }; } },
+  { u: 0, f: () => { const n = 5 + rnd(5), m = n + one([-1, 1]); return { pic: `<span class="age">🎂<b>${n}</b></span>`, q: "How old are you?", ok: `I'm ${NUMW[n]}.`, bad: `I'm ${NUMW[m]}.` }; } },
+  { u: 1, f: c => { const x = c.pick(isNoun), y = c.pick(isNoun, [x]); return { pic: P.one(x), q: "What is it?", ok: `It's ${an(x.en)}.`, bad: one([`It's ${wrongAn(x.en)}.`, `It's is ${an(x.en)}.`, `They're ${plural(x.en)}.`, `It's ${an(y.en)}.`]) }; } },
+  { u: 1, f: c => {
+    const x = c.pick(isNoun);
+    if (Math.random() < .5) return { pic: P.one(x), q: `Is it ${an(x.en)}?`, ok: "Yes, it is.", bad: one(["Yes, it's is.", "No, it isn't."]) };
+    const y = c.pick(isNoun, [x]);
+    return { pic: P.one(x), q: `Is it ${an(y.en)}?`, ok: `No, it isn't. It's ${an(x.en)}.`, bad: one([`No, it isn't. It's ${wrongAn(x.en)}.`, "Yes, it is."]) }; } },
+  { u: 1, f: c => { const x = c.pick(isNoun), n = 2 + rnd(6), m = n + one([-1, 1]); return { pic: P.many(x.e, n), q: `How many ${plural(x.en)}?`, ok: `${cap(NUMW[n])}.`, bad: `${cap(NUMW[m])}.` }; } },
+  { u: 2, f: c => { const x = c.pick(isNoun), y = c.pick(isNoun, [x]); return { pic: P.many(x.e, 3), q: "What are they?", ok: `They're ${plural(x.en)}.`, bad: one([`They're ${x.en}.`, `It's ${an(x.en)}.`, `They're ${plural(y.en)}.`]) }; } },
+  { u: 2, f: () => { const t = one(Object.keys(THINGS)), [p, q] = sample(Object.keys(PLACES), 2); return { pic: P.scene(PLACES[p], THINGS[t]), q: `Where is the ${t}?`, ok: `It's ${p}.`, bad: `It's ${q}.` }; } },
+  { u: 3, f: c => { const x = c.pick(isFam), g = FAM[x.en], y = c.pick(z => FAM[z.en] === g, [x]), H = cap(he(g)); return { pic: P.one(x), q: `Who is ${he(g)}?`, ok: `${H}'s my ${x.en}.`, bad: one([`${H}'s my ${y.en}.`, `${H} my ${x.en}.`]) }; } },
+  { u: 4, f: c => {
+    const x = c.pick(isNoun);
+    if (Math.random() < .5) return { pic: P.one(x), q: `Is there ${an(x.en)}?`, ok: "Yes, there is.", bad: one(["Yes, it is.", "No, there isn't."]) };
+    const y = c.pick(isNoun, [x]);
+    return { pic: P.one(x), q: `Is there ${an(y.en)}?`, ok: "No, there isn't.", bad: one(["Yes, there is.", "No, it isn't."]) }; } },
+  { u: 4, f: c => { const x = c.pick(inL(ACT4)), y = c.pick(inL(ACT4), [x]), p = one(["he", "she"]); return { pic: P.one(x), q: `What is ${p} doing?`, ok: `${cap(p)}'s ${x.en}.`, bad: one([`${cap(p)}'s ${y.en}.`, `${cap(p)} ${x.en}.`]) }; } },
+  { u: 5, f: c => { const x = c.pick(inL(CLOTHES)), y = c.pick(inL(CLOTHES), [x]); return { pic: P.one(x), q: "What are you wearing?", ok: `I'm wearing ${wear(x.en)}.`, bad: one([`I'm wearing ${wear(y.en)}.`, `I wearing ${wear(x.en)}.`]) }; } },
+  { u: 5, f: c => thisThat(c, "that", "those") },
+  { u: 6, f: c => thisThat(c, "this", "these") },
+  { u: 6, f: c => { const x = c.pick(inL(TOYS)), y = c.pick(inL(TOYS), [x]); return { pic: P.one(x), q: "What do you want?", ok: `I want ${an(x.en)}.`, bad: one([`I wants ${an(x.en)}.`, `I want ${an(y.en)}.`]) }; } },
+  { u: 7, f: () => { const a = one(Object.keys(ACT7)), yes = Math.random() < .5; return { pic: P.badge(ACT7[a], yes ? "✅" : "❌"), q: `Can you ${a}?`, ok: yes ? "Yes, I can." : "No, I can't.", bad: yes ? one(["No, I can't.", "Yes, I do."]) : one(["Yes, I can.", "No, I don't."]) }; } },
+  { u: 7, f: c => { const x = c.pick(inL(BODY)), y = c.pick(inL(BODY), [x]); return { pic: P.one(x), q: "What's this?", ok: `It's my ${x.en}.`, bad: `It's my ${y.en}.` }; } },
+  { u: 8, f: c => {
+    const x = c.pick(inL([...FOOD_C, ...FOOD_M])), yes = Math.random() < .5, f = FOOD_C.includes(x.en) ? plural(x.en) : x.en;
+    return { pic: P.badge(x.e, yes ? "👍" : "👎"), q: `Do you like ${f}?`, ok: yes ? "Yes, I do." : "No, I don't.", bad: yes ? one(["Yes, I am.", "No, I don't."]) : one(["No, I doesn't.", "Yes, I do."]) }; } },
+  { u: 8, f: c => { const x = c.pick(inL(FOOD_C)); return { pic: P.one(x), q: "What do you want?", ok: `I want ${an(x.en)}.`, bad: `I want ${wrongAn(x.en)}.` }; } },
+];
+/* Câu đọc Yes/No: yes = tranh khớp với câu, ngược lại tranh bị đổi sang thứ khác / số lượng khác */
+const R = [
+  { u: 0, f: (c, yes) => { const x = c.pick(isColor), y = c.pick(isColor, [x]); return { pic: P.one(yes ? x : y), s: `It's ${x.en}.` }; } },
+  { u: 1, f: (c, yes) => { const x = c.pick(isNoun), y = c.pick(isNoun, [x]); return { pic: P.one(yes ? x : y), s: `It's ${an(x.en)}.` }; } },
+  { u: 2, f: (c, yes) => { const x = c.pick(isNoun), y = c.pick(isNoun, [x]); return { pic: P.many((yes ? x : y).e, 3), s: `They're ${plural(x.en)}.` }; } },
+  { u: 2, f: (c, yes) => { const t = one(Object.keys(THINGS)), [p, q] = sample(Object.keys(PLACES), 2); return { pic: P.scene(PLACES[yes ? p : q], THINGS[t]), s: `The ${t} is ${p}.` }; } },
+  { u: 3, f: (c, yes) => { const x = c.pick(isFam), g = FAM[x.en], y = c.pick(z => FAM[z.en] === g, [x]); return { pic: P.one(yes ? x : y), s: `${cap(he(g))}'s my ${x.en}.` }; } },
+  { u: 3, f: (c, yes) => { const w = one(["brother", "sister"]), n = 2 + rnd(3), m = n + one([-1, 1]); return { pic: P.many(EW[w], yes ? n : m), s: `I have ${NUMW[n]} ${w}s.` }; } },
+  { u: 4, f: (c, yes) => { const x = c.pick(isNoun), n = 2 + rnd(5), m = n + one([-1, 1]); return { pic: P.many(x.e, yes ? n : m), s: `There are ${NUMW[n]} ${plural(x.en)}.` }; } },
+  { u: 4, f: (c, yes) => { const x = c.pick(inL(ACT4)), y = c.pick(inL(ACT4), [x]), p = one(["He", "She"]); return { pic: P.one(yes ? x : y), s: `${p} is ${x.en}.` }; } },
+  { u: 5, f: (c, yes) => { const x = c.pick(inL(CLOTHES)), y = c.pick(inL(CLOTHES), [x]); return { pic: P.one(yes ? x : y), s: `I'm wearing ${wear(x.en)}.` }; } },
+  { u: 6, f: (c, yes) => { const x = c.pick(inL(TOYS)), y = c.pick(inL(TOYS), [x]); return { pic: P.one(yes ? x : y), s: one([`I want ${an(x.en)}.`, `This is my ${x.en}.`]) }; } },
+  { u: 7, f: (c, yes) => { const [a, b] = sample(Object.keys(ACT7), 2); return { pic: pic(ACT7[yes ? a : b]), s: `I can ${a}.` }; } },
+  { u: 7, f: (c, yes) => { const x = c.pick(inL(BODY)), y = c.pick(inL(BODY), [x]); return { pic: P.one(yes ? x : y), s: `This is my ${x.en}.` }; } },
+  { u: 8, f: (c, yes) => { const x = c.pick(inL([...FOOD_C, ...FOOD_M])), f = FOOD_C.includes(x.en) ? plural(x.en) : x.en; return { pic: P.badge(x.e, yes ? "👍" : "👎"), s: `I like ${f}.` }; } },
+  { u: 8, f: (c, yes) => { const x = c.pick(inL(FOOD_C)), y = c.pick(inL(FOOD_C), [x]); return { pic: P.one(yes ? x : y), s: `I want ${an(x.en)}.` }; } },
+];
+
+/* Phonetics: "b as in bear" → tìm tranh có cùng âm đầu (x: âm cuối). Chữ cái lấy theo Sounds Great, tranh lấy từ vựng cả 2 sách. */
+function genPho(c) {
+  const ls = SG_UNITS.slice(0, c.sg).flatMap((u, i) => u.letters.map(l => ({ l, wt: REC(c.sg - 1 - i) })));
+  const { l } = wpick(ls, o => o.wt * 0.2 ** (c.usedL.get(o.l.L) || 0));
+  c.usedL.set(l.L, (c.usedL.get(l.L) || 0) + 1);
+  // Nguyên âm chỉ lấy từ khóa của Sounds Great (âm ngắn chuẩn); phụ âm nhận thêm từ EOW nhưng bỏ ch/sh/th/wh
+  const fits = x => l.end ? x.en.includes(l.L) : SGL[x.en] === l.L || (!"aeiouqx".includes(l.L) && x.en.startsWith(l.L) && x.en[1] !== "h");
+  const same = x => { const f = x.en[0]; return fits(x) || f === l.L || (LETTER[f] && LETTER[f].snd === l.snd) || (l.end && x.en.includes(l.L)); };
+  const ok = c.pick(x => fits(x) && isImg(x));
+  const kw = l.words.map(w => w[0]).find(w => w !== ok.en);
+  const list = shuffle([ok, ...c.pickN(2, x => isImg(x) && !same(x), [ok])]);
+  return { q: `<b>${l.L}</b> as in ${esc(kw)}`, opts: list.map(x => pic(x.e)), ans: list.indexOf(ok), sig: l.L + ok.en };
+}
+/* Vocabulary: nhìn tranh chọn từ (có câu hỏi mạo từ a/an/số nhiều như đề mẫu) và đọc từ chọn tranh */
+function genVocA(c, art) {
+  if (art) {
+    const x = c.pick(isNoun), o = shuffle([an(x.en), wrongAn(x.en), plural(x.en)]);
+    return { pic: P.one(x), opts: o, ans: o.indexOf(an(x.en)), sig: x.en };
+  }
+  const x = c.pick(isPic), list = shuffle([x, ...c.pickN(2, isPic, [x])]);
+  return { pic: P.one(x), opts: list.map(label), ans: list.indexOf(x), sig: x.en };
+}
+function genVocB(c) {
+  const x = c.pick(isImg), list = shuffle([x, ...c.pickN(2, isImg, [x])]);
+  return { q: esc(x.en), opts: list.map(w => pic(w.e)), ans: list.indexOf(x), sig: x.en };
+}
+/* Writing: điền chữ cái còn thiếu; phương án nhiễu là chữ dễ nhầm (b/d/p, m/n…) và không tạo thành từ khác */
+const LOOKALIKE = { a: "eou", b: "dp", c: "ks", d: "bp", e: "ai", f: "vt", g: "jq", h: "nk", i: "ey", j: "g", k: "cg", l: "ri", m: "nw", n: "mu", o: "au", p: "bq", q: "gp", r: "lw", s: "cz", t: "fd", u: "on", v: "fw", w: "vm", x: "ks", y: "iv", z: "s" };
+function genWrite(c) {
+  const x = c.pick(x => isPic(x) && /^[a-z]{3,7}$/.test(x.en));
+  const i = rnd(x.en.length), L = x.en[i], words = new Set(c.all.map(w => w.en));
+  const cand = [...shuffle([...(LOOKALIKE[L] || "")]), ...shuffle([..."abcdefghiklmnoprstuvwy"])]
+    .filter((k, j, a) => k !== L && a.indexOf(k) === j && !words.has(x.en.slice(0, i) + k + x.en.slice(i + 1)));
+  const opts = shuffle([L, cand[0], cand[1]]);
+  return { pic: P.one(x), word: x.en, at: i, opts, ans: opts.indexOf(L), sig: x.en };
+}
+function many(n, gen) {
+  const out = [], seen = new Set();
+  for (let t = 0; out.length < n && t < 300; t++) {
+    const it = gen(out.length);
+    if (!it || seen.has(it.sig)) continue;
+    seen.add(it.sig); out.push(it);
+  }
+  return out;
+}
+const K = "ABCDEFG";
+const SECS = [["pho", "Phonetics"], ["voc", "Vocabulary"], ["gra", "Grammar"], ["rea", "Reading"], ["wri", "Writing"]];
+
+function makeExam(eow, sg) {
+  const c = examCtx(eow, sg);
+  const gram = () => { const r = pickT(c, G).f(c); if (r.ok === r.bad) return null; const o = shuffle([r.ok, r.bad]); return { pic: r.pic, q: r.q, opts: o, ans: o.indexOf(r.ok), sig: r.q + r.ok }; };
+  const pho = many(7, () => genPho(c));
+  const vocA = many(7, i => genVocA(c, i === 3 || i === 6));
+  const vocB = many(7, () => genVocB(c));
+  const gra = many(8, gram);
+  // Nối: ví dụ + 5 câu, thêm 1 câu trả lời thừa; mỗi câu trả lời khác nhau để chỉ có một cách nối đúng
+  const mt = many(7, () => { const r = pickT(c, G).f(c); return { pic: r.pic, q: r.q, ok: r.ok, sig: r.ok }; });
+  const answers = [mt[0].ok, ...shuffle(mt.slice(1).map(x => x.ok))];
+  const match = mt.slice(0, 6).map(x => ({ pic: x.pic, q: x.q, opts: answers.map((_, j) => K[j]), ans: answers.indexOf(x.ok) }));
+  const yes = [true, ...shuffle([true, true, false, false, Math.random() < .5])];
+  const rea = many(6, i => { const r = pickT(c, R).f(c, yes[i]); return { pic: r.pic, q: r.s, opts: ["Yes", "No"], ans: yes[i] ? 0 : 1, sig: r.s }; });
+  const wri = many(6, () => genWrite(c));
+  const parts = [
+    { sec: "pho", head: "I. Phonetics", no: 1, en: "Look at the pictures and sounds. CIRCLE the correct answers.", vi: "Đọc âm, khoanh vào tranh có âm đó ở đầu từ.", lay: "pics", items: pho },
+    { sec: "voc", head: "II. Vocabulary", no: 2, en: "Look at the pictures. CIRCLE the correct answers.", vi: "Nhìn tranh, khoanh vào từ đúng.", lay: "words", items: vocA },
+    { sec: "voc", no: 3, en: "Read, look and CIRCLE the correct answers.", vi: "Đọc từ, khoanh vào tranh đúng.", lay: "pics", items: vocB },
+    { sec: "gra", head: "III. Grammar", no: 4, en: "Look and read. CIRCLE the correct answers.", vi: "Nhìn tranh, đọc câu hỏi, khoanh câu trả lời đúng.", lay: "qa", items: gra },
+    { sec: "gra", no: 5, en: "Read. MATCH the questions with the answers.", vi: "Nối câu hỏi với câu trả lời: chọn chữ cái của câu trả lời.", lay: "match", items: match, answers },
+    { sec: "rea", head: "IV. Reading", no: 6, en: "Look and read. CIRCLE the correct answer.", vi: "Nhìn tranh, đọc câu. Câu đúng với tranh chọn Yes, sai chọn No.", lay: "yn", items: rea },
+    { sec: "wri", head: "V. Writing", no: 7, en: "Look. CIRCLE the correct answer. WRITE.", vi: "Nhìn tranh, chọn chữ cái còn thiếu trong từ.", lay: "write", items: wri, pts: 2 },
+  ];
+  let id = 0, n = 0;
+  for (const p of parts) p.items.forEach((it, j) => {
+    Object.assign(it, { id: id++, ex: j === 0, sec: p.sec, pts: p.pts || 1 });
+    it.sel = it.ex ? it.ans : null;
+    if (!it.ex) it.n = ++n;
+  });
+  return { eow, sg, parts, done: false };
+}
+
+const EXAM = { eow: store.get("x:eow", 1), sg: store.get("x:sg", 1) };
+const eowName = i => i === 0 ? "Welcome" : "Unit " + i;
+
+function examSetup() {
+  document.title = "Bài kiểm tra · Bé Ôn English";
+  const hist = store.get("x:hist", []);
+  $app.innerHTML = `
+    <div class="top"><button class="btn back" id="back">← Trang chủ</button></div>
+    <div class="unit-head" style="--c:#d3f3dc"><span class="ico">📝</span><div><p>Bài kiểm tra tổng hợp</p><h2>Tạo đề thi thử</h2><p>40 câu · 45 điểm · khoảng 40 phút</p></div></div>
+    <div class="section-label">Explore Our World 1 — bé đang học tới</div>
+    <div class="picks" data-k="eow">${UNITS.map((u, i) => `<button class="pick" data-v="${i}"><b>${eowName(i)}</b><small>${esc(u.title)}</small></button>`).join("")}</div>
+    <div class="section-label">Sounds Great 1 — bé đang học tới</div>
+    <div class="picks" data-k="sg">${SG_UNITS.map(u => `<button class="pick" data-v="${u.no}"><b>Unit ${u.no}</b><small>${esc(u.title)}</small></button>`).join("")}</div>
+    <div class="paper">
+      <b>Đề gồm 5 phần như đề ở trường</b>
+      <div class="plan">
+        <div><b>Phonetics · 6 điểm</b>Âm chữ cái (Sounds Great) với tranh từ vựng cả 2 sách</div>
+        <div><b>Vocabulary · 12 điểm</b>Nhìn tranh chọn từ, đọc từ chọn tranh</div>
+        <div><b>Grammar · 12 điểm</b>Mẫu câu Explore Our World: chọn câu trả lời và nối</div>
+        <div><b>Reading · 5 điểm</b>Đọc câu, xem tranh, chọn Yes/No</div>
+        <div><b>Writing · 10 điểm</b>Chọn chữ cái còn thiếu trong từ</div>
+      </div>
+      <p class="xmeta" id="scope"></p>
+    </div>
+    <div class="row"><button class="btn primary" id="make" style="font-size:22px;padding:14px 28px">📝 Tạo đề</button></div>
+    ${hist.length ? `<div class="section-label" style="margin-top:26px">Các lần làm gần đây</div><div class="hist">${hist.slice(0, 6).map(h => `<div><span>${new Date(h.t).toLocaleDateString("vi-VN")} · EOW ${eowName(h.eow)} · SG Unit ${h.sg}</span><b>${h.total}/${h.max}</b></div>`).join("")}</div>` : ""}`;
+  document.getElementById("back").onclick = () => go(home);
+  const paint = () => {
+    $app.querySelectorAll(".picks").forEach(box => box.querySelectorAll(".pick").forEach(b => {
+      const v = +b.dataset.v, cur = EXAM[box.dataset.k];
+      b.setAttribute("aria-pressed", v === cur); b.classList.toggle("inc", v < cur);
+    }));
+    document.getElementById("scope").textContent = `Kiến thức từ đầu tới ${eowName(EXAM.eow)} (Explore Our World) và Unit ${EXAM.sg} (Sounds Great, chữ ${SG_UNITS.slice(0, EXAM.sg).flatMap(u => u.letters).map(l => l.L.toUpperCase()).join(" ")}). Bài đang học và bài ngay trước được ra nhiều câu hơn.`;
+  };
+  $app.querySelectorAll(".picks").forEach(box => box.querySelectorAll(".pick").forEach(b => b.onclick = () => {
+    EXAM[box.dataset.k] = +b.dataset.v; store.set("x:" + box.dataset.k, EXAM[box.dataset.k]); paint();
+  }));
+  paint();
+  document.getElementById("make").onclick = () => go(() => examPage(makeExam(EXAM.eow, EXAM.sg)));
+}
+
+function examPage(T) {
+  document.title = "Practice Test · Lớp 1";
+  const items = T.parts.flatMap(p => p.items), real = items.filter(i => !i.ex);
+  const byId = Object.fromEntries(items.map(i => [i.id, i]));
+  const score = list => list.filter(i => !i.ex).reduce((a, i) => a + (T.done && i.sel === i.ans ? i.pts : 0), 0);
+  const maxOf = list => list.filter(i => !i.ex).reduce((a, i) => a + i.pts, 0);
+  const bySec = k => real.filter(i => i.sec === k);
+  const total = score(real), max = maxOf(real);
+  const stars = total >= max * .9 ? 3 : total >= max * .7 ? 2 : 1;
+  const wrong = real.filter(i => i.sel !== i.ans).length;
+  const letters = SG_UNITS.slice(0, T.sg).flatMap(u => u.letters);
+
+  const qHtml = (p, it) => {
+    const lock = it.ex || T.done;
+    const st = j => T.done && !it.ex ? (j === it.ans ? " right" : j === it.sel ? " wrong" : "") : "";
+    const btn = (j, inner, cls = "") => `<button class="ch${cls}${st(j)}" data-q="${it.id}" data-j="${j}" aria-pressed="${it.sel === j}"${lock ? " disabled" : ""}><span class="k">${K[j]}</span>${inner}</button>`;
+    const num = `<span class="qn">${it.ex ? 0 : it.n}.</span>`;
+    const qp = it.pic ? `<span class="qp">${it.pic}</span>` : "";
+    const mark = it.ex ? `<span class="exb">Ví dụ</span>` : T.done ? (it.sel === it.ans ? `<span class="mk ok" aria-label="Đúng">✓</span>` : `<span class="mk no" aria-label="Sai">✗</span>`) : "";
+    let head, chs;
+    if (p.lay === "pics") { head = `${num}<span class="qt">${it.q}</span>`; chs = `<div class="chs c3">${it.opts.map((o, j) => btn(j, o, " pico")).join("")}</div>`; }
+    else if (p.lay === "words") { head = num + qp; chs = `<div class="chs c3">${it.opts.map((o, j) => btn(j, `<span>${esc(o)}</span>`)).join("")}</div>`; }
+    else if (p.lay === "write") {
+      const w = it.word;
+      head = `${num}${qp}<span class="qt word">${esc(w.slice(0, it.at))}<span class="blank">${it.sel == null ? "&nbsp;" : it.opts[it.sel]}</span>${esc(w.slice(it.at + 1))}</span>`;
+      chs = `<div class="chs c3">${it.opts.map((o, j) => btn(j, `<span>${o}</span>`, " big")).join("")}</div>`;
+    } else {
+      head = `${num}${qp}<span class="qt">${esc(it.q)}</span>`;
+      chs = p.lay === "match" ? `<div class="chs cl">${it.opts.map((o, j) => btn(j, "", " only")).join("")}</div>`
+        : `<div class="chs${p.lay === "yn" ? " c2" : ""}">${it.opts.map((o, j) => btn(j, `<span>${esc(o)}</span>`)).join("")}</div>`;
+    }
+    return `<div class="q ${p.lay}${it.ex ? " ex" : ""}"><div class="qhead">${head}${mark}</div>${chs}</div>`;
+  };
+  const partHtml = p => `<section class="paper">
+    ${p.head ? `<div class="sec-h"><h3>${p.head}</h3></div>` : ""}
+    <p class="instr">${p.no}. ${p.en} There is one example. <span class="pts">(${T.done ? score(p.items) : "……"}/${maxOf(p.items)} pts)</span>${S.vi ? `<small>${p.vi}</small>` : ""}</p>
+    ${p.answers ? `<div class="ansbox">${p.answers.map((a, j) => `<div><b>${K[j]}.</b>${esc(a)}</div>`).join("")}</div>` : ""}
+    ${p.items.map(it => qHtml(p, it)).join("")}
+  </section>`;
+
+  $app.innerHTML = `
+    <div class="top noprint"><button class="btn back" id="back">← Chọn bài</button><span class="grow"></span><button class="btn" id="print">🖨️ In đề</button><button class="btn sun" id="new">🔄 Đề khác</button></div>
+    <div id="exam">
+      <section class="paper xhead">
+        <div><h2>PRACTICE TEST</h2><p class="xmeta">Môn Tiếng Anh · Lớp 1 · Thời gian làm bài: 40 phút<br>Explore Our World 1: tới ${eowName(T.eow)} · Sounds Great 1: tới Unit ${T.sg} (${letters[0].L.toUpperCase()}–${letters[letters.length - 1].L.toUpperCase()})</p></div>
+        <label class="namebox">Họ và tên: <input id="nm" value="${esc(store.get("x:name", ""))}" autocomplete="off" spellcheck="false"></label>
+        <div class="scores">${SECS.map(([k, t]) => `<div class="sc"><small>${t}</small><b>${T.done ? score(bySec(k)) : "…"}/${maxOf(bySec(k))}</b></div>`).join("")}<div class="sc tot"><small>Tổng điểm</small><b>${T.done ? total : "…"}/${max}</b></div></div>
+        ${T.done ? `<div class="result"><div class="bigstars">${[1, 2, 3].map(i => `<span style="${i <= stars ? "" : "opacity:.2;filter:grayscale(1)"}">⭐</span>`).join("")}</div>
+          <h3>${["", "Good try!", "Great job!", "Excellent!"][stars]}</h3>
+          <p>${wrong ? `Con sai ${wrong} câu. Ô đỏ là con chọn sai, ô xanh là đáp án đúng.` : "Con làm đúng hết! Giỏi quá!"}</p></div>` : ""}
+      </section>
+      ${T.parts.map(partHtml).join("")}
+      <div class="xfoot noprint">${T.done
+        ? `<button class="btn sun" id="new2">🔄 Làm đề khác</button><button class="btn primary" id="home2">Trang chủ</button>`
+        : `<span class="xmeta" id="cnt"></span><button class="btn primary" id="submit" style="font-size:20px;padding:12px 26px">✅ Nộp bài</button>`}</div>
+    </div>`;
+
+  const fresh = () => go(() => examPage(makeExam(T.eow, T.sg)));
+  document.getElementById("back").onclick = () => go(examSetup);
+  document.getElementById("print").onclick = () => window.print();
+  document.getElementById("new").onclick = () => { if (T.done || real.every(i => i.sel == null) || confirm("Bỏ bài đang làm và tạo đề khác?")) fresh(); };
+  document.getElementById("nm").oninput = e => store.set("x:name", e.target.value);
+  if (T.done) {
+    document.getElementById("new2").onclick = fresh;
+    document.getElementById("home2").onclick = () => go(home);
+    if (!T.saved) {
+      T.saved = true;
+      store.set("x:hist", [{ t: Date.now(), eow: T.eow, sg: T.sg, total, max }, ...store.get("x:hist", [])].slice(0, 20));
+      if (stars >= 2) burst();
+      speak(["", "Good try!", "Great job!", "Excellent!"][stars]);
+    }
+    return;
+  }
+  const cnt = document.getElementById("cnt");
+  const count = () => cnt.textContent = `Đã làm ${real.filter(i => i.sel != null).length}/${real.length} câu`;
+  count();
+  document.getElementById("exam").onclick = e => {
+    const b = e.target.closest(".ch[data-q]");
+    if (!b || b.disabled) return;
+    const it = byId[b.dataset.q];
+    it.sel = +b.dataset.j;
+    b.parentElement.querySelectorAll(".ch").forEach(x => x.setAttribute("aria-pressed", x === b));
+    const blank = b.closest(".q").querySelector(".blank");
+    if (blank) blank.textContent = it.opts[it.sel];
+    count();
+  };
+  document.getElementById("submit").onclick = () => {
+    const left = real.filter(i => i.sel == null).length;
+    if (left && !confirm(`Con còn ${left} câu chưa làm. Vẫn nộp bài nhé?`)) return;
+    T.done = true;
+    go(() => examPage(T));
+  };
 }
 
 home();
