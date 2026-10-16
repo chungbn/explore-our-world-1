@@ -325,6 +325,7 @@ button:focus-visible { outline: 3px solid var(--sky); outline-offset: 3px; }
 
 <div id="app"></div>
 
+<script src="audio/index.js"></script>
 <script>
 /* ---------- Nội dung: theo Scope & Sequence Explore Our World 1 (2nd ed.) ---------- */
 const UNITS = [
@@ -473,7 +474,45 @@ function pickVoice() {
   voice = pref.map(p => vs.find(v => v.name.includes(p))).find(Boolean) || vs.find(v => /en[-_]US/i.test(v.lang)) || vs[0] || null;
 }
 if (hasTTS) { pickVoice(); speechSynthesis.onvoiceschanged = pickVoice; }
+/* File mp3 tạo sẵn bằng tools/gen-audio.mjs (Azure Neural TTS). audio/index.js khai báo AUDIO_FILES = { khóa: tên file };
+   không có file nào thì mọi chỗ vẫn đọc bằng giọng của trình duyệt như cũ. */
+const AUD = window.AUDIO_FILES || {};
+const akey = s => String(s).toLowerCase().replace(/\s+/g, " ").replace(/^[\s.,!?]+|[\s.,!?]+$/g, "");
+const hasSnd = l => !!AUD[akey(l.snd)];
+const player = new Audio(); // dùng chung một phần tử: Safari chỉ cho phát tự động sau khi phần tử đã được phát bằng một lần chạm
+let speakId = 0;
+function stopSpeech() {
+  speakId++; player.onended = player.onerror = null; player.pause();
+  if (hasTTS) speechSynthesis.cancel();
+}
+// Cả câu có file thì phát một file; không thì tách theo dấu câu và âm /x/ ("B. /b/ /b/. bear, ball") rồi phát nối tiếp
+function clipsFor(text) {
+  const whole = AUD[akey(text)];
+  if (whole) return [whole];
+  const parts = text.split(/(?<=[.,!?])\s+|\s+(?=\/)/).map(akey).filter(Boolean);
+  const files = parts.map(p => AUD[p]);
+  return parts.length > 1 && files.every(Boolean) ? files : null;
+}
 function speak(text, onend) {
+  stopSpeech();
+  const id = speakId, clips = clipsFor(text);
+  if (!clips) return ttsSpeak(text, onend);
+  let fired = false;
+  const done = () => { if (!fired && id === speakId) { fired = true; onend && onend(); } };
+  const next = i => {
+    if (id !== speakId) return;
+    if (i >= clips.length) return done();
+    player.src = "audio/" + clips[i];
+    player.playbackRate = S.slow ? 0.8 : 1; player.preservesPitch = true;
+    player.onended = () => setTimeout(() => next(i + 1), i + 1 < clips.length ? 220 : 0);
+    // Lỗi tải file hoặc trình duyệt chặn phát: đọc phần còn lại bằng giọng trình duyệt
+    player.onerror = () => { if (id === speakId) ttsSpeak(text, onend); };
+    player.play().catch(() => { if (id === speakId) ttsSpeak(text, onend); });
+  };
+  next(0);
+}
+function ttsSpeak(text, onend) {
+  text = text.replace(/\/[^/\s]+\//g, " ").replace(/\s+([.,])/g, "$1").replace(/([.,])[.,]+/g, "$1"); // giọng máy không đọc được âm /b/, bỏ đi
   if (!hasTTS) { onend && setTimeout(onend, 600); return; }
   speechSynthesis.cancel();
   const u = new SpeechSynthesisUtterance(text);
@@ -486,6 +525,8 @@ function speak(text, onend) {
   }
   speechSynthesis.speak(u);
 }
+// Tên chữ cái, kèm âm của chữ nếu đã có file âm: "B. /b/ /b/"
+const sayLetter = l => hasSnd(l) ? `${l.L.toUpperCase()}. ${l.snd} ${l.snd}` : l.L.toUpperCase();
 let actx = null;
 function beep(ok) {
   try {
@@ -535,7 +576,7 @@ const COURSES = [
   { key: "eow1", name: "Explore Our World 1", sub: "Explore Our World 1 · Second Edition · Lớp 1", units: UNITS, reviews: REVIEWS, games: EOW_GAMES,
     foot: "Từ vựng và mẫu câu bám theo phần Scope and Sequence của sách Explore Our World 1 (Second Edition, National Geographic Learning): mỗi unit gồm 2 nhóm từ vựng và 2 điểm ngữ pháp." },
   { key: "sg1", name: "Sounds Great 1", sub: "Sounds Great 1 · Phonics · Âm chữ cái A–Z", units: SG_UNITS, reviews: SG_REVIEWS, games: SG_GAMES,
-    foot: "Sounds Great 1 (Compass Publishing) dạy âm của từng chữ cái từ A đến Z qua các từ khóa. Cách chia unit và từ khóa ở đây là bản tự biên soạn theo đúng hướng của sách, có thể khác một chút so với sách của bé. Giọng đọc của máy không phát được âm đơn lẻ như /b/, nên bé nghe âm qua từ khóa; bố mẹ hãy đọc mẫu âm (ví dụ /b/ /b/ bear) để bé nhắc theo." },
+    foot: "Sounds Great 1 (Compass Publishing) dạy âm của từng chữ cái từ A đến Z qua các từ khóa. Cách chia unit và từ khóa ở đây là bản tự biên soạn theo đúng hướng của sách, có thể khác một chút so với sách của bé. " + (SG_LETTERS.some(hasSnd) ? "Chạm vào chữ cái để nghe tên chữ, âm của chữ (ví dụ /b/ /b/) rồi đến các từ khóa; bé nhắc theo từng âm." : "Giọng đọc của máy không phát được âm đơn lẻ như /b/, nên bé nghe âm qua từ khóa; bố mẹ hãy đọc mẫu âm (ví dụ /b/ /b/ bear) để bé nhắc theo.") },
 ];
 for (const c of COURSES) {
   c.all = [...c.units, ...c.reviews]; c.scored = c.games.filter(g => g.scored); c.max = c.scored.length * 3;
@@ -547,7 +588,7 @@ const unitStars = u => u.course.scored.reduce((n, g) => n + starsOf(u, g.k), 0);
 const starRow = n => `<span class="stars" aria-label="${n} trên 3 sao">${[1, 2, 3].map(i => `<span class="${i <= n ? "" : "off"}">⭐</span>`).join("")}</span>`;
 
 /* ---------- Màn hình ---------- */
-function go(fn) { if (hasTTS) speechSynthesis.cancel(); fn(); window.scrollTo(0, 0); }
+function go(fn) { stopSpeech(); fn(); window.scrollTo(0, 0); }
 
 function home() {
   document.title = "Bé Ôn " + C.name;
@@ -636,7 +677,7 @@ function learn(u) {
   let playing = false;
   cards.forEach(c => c.onclick = () => { playing = false; light(+c.dataset.i); speak(words[+c.dataset.i].en); });
   const allBtn = document.getElementById("all"), stopBtn = document.getElementById("stop");
-  const stop = () => { playing = false; allBtn.hidden = false; stopBtn.hidden = true; if (hasTTS) speechSynthesis.cancel(); };
+  const stop = () => { playing = false; allBtn.hidden = false; stopBtn.hidden = true; stopSpeech(); };
   allBtn.onclick = () => {
     playing = true; allBtn.hidden = true; stopBtn.hidden = false;
     const step = i => { if (!playing || !document.body.contains(allBtn)) return; if (i >= words.length) return stop(); light(i); speak(words[i].en, () => setTimeout(() => step(i + 1), 700)); };
@@ -821,16 +862,16 @@ function abc(u) {
     </section>`).join("")}</div>`;
   bindBack(u);
   const all = [...$app.querySelectorAll(".lbig, .lt .wcard")];
-  const textOf = el => { const l = u.letters[+el.dataset.l]; return el.dataset.w == null ? l.L.toUpperCase() : l.words[+el.dataset.w][0]; };
+  const textOf = el => { const l = u.letters[+el.dataset.l]; return el.dataset.w == null ? sayLetter(l) : l.words[+el.dataset.w][0]; };
   const light = el => { all.forEach(x => x.classList.remove("lit")); if (el) { el.classList.add("lit"); el.scrollIntoView({ block: "nearest", behavior: "smooth" }); } };
   let playing = false;
   all.forEach(el => el.onclick = () => {
     playing = false; light(el);
     const l = u.letters[+el.dataset.l];
-    speak(el.dataset.w == null ? `${l.L.toUpperCase()}. ${l.words.map(w => w[0]).join(", ")}` : textOf(el));
+    speak(el.dataset.w == null ? `${sayLetter(l)}. ${l.words.map(w => w[0]).join(", ")}` : textOf(el));
   });
   const allBtn = document.getElementById("all"), stopBtn = document.getElementById("stop");
-  const stop = () => { playing = false; allBtn.hidden = false; stopBtn.hidden = true; if (hasTTS) speechSynthesis.cancel(); };
+  const stop = () => { playing = false; allBtn.hidden = false; stopBtn.hidden = true; stopSpeech(); };
   allBtn.onclick = () => {
     playing = true; allBtn.hidden = true; stopBtn.hidden = false;
     const step = i => { if (!playing || !document.body.contains(allBtn)) return; if (i >= all.length) return stop(); light(all[i]); speak(textOf(all[i]), () => setTimeout(() => step(i + 1), 600)); };
@@ -894,8 +935,8 @@ function find(u) {
         <p class="reveal">${tl.snd}</p><button class="speaker small" id="say" aria-label="Nghe chữ cái">🔊</button></div>
       <div class="opts">${list.map((w, j) => `<button class="opt" data-j="${j}" aria-label="Lựa chọn ${j + 1}">${pic(w.e)}</button>`).join("")}</div>`;
     bindBack(u);
-    document.getElementById("say").onclick = () => speak(tl.L.toUpperCase());
-    speak(tl.L.toUpperCase());
+    document.getElementById("say").onclick = () => speak(sayLetter(tl));
+    speak(sayLetter(tl));
     let locked = false;
     $app.querySelectorAll(".opt").forEach(b => b.onclick = () => {
       if (locked) return;
