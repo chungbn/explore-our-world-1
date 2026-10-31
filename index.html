@@ -372,7 +372,7 @@ const UNITS = [
     words: [["ball","quả bóng","⚽"],["bike","xe đạp","🚲"],["car","ô tô","🚗"],["kite","con diều","🪁"],["top","con quay","svg:top"],["train","tàu hỏa","🚂"],["truck","xe tải","🚚"],["game","trò chơi","🎲"],["doll","búp bê","🪆"],["puzzle","tranh ghép","🧩"],["robot","rô-bốt","🤖"],["teddy bear","gấu bông","🧸"]],
     sents: [["I want a robot.","Tớ muốn một con rô-bốt.","🤖"],["She wants a doll.","Cô ấy muốn một con búp bê.","🪆"],["What's this? It's a kite.","Đây là cái gì? Đó là con diều.","🪁"],["What are these? They're cars.","Đây là những cái gì? Đó là những chiếc ô tô.","🚗"],["This is my teddy bear.","Đây là gấu bông của tớ.","🧸"],["It's your ball.","Đó là quả bóng của bạn.","⚽"]] },
   { id: 7, title: "My Body", vi: "Cơ thể em", icon: "🖐️", c: "#d2f1f4",
-    words: [["head","cái đầu","svg:head"],["hair","tóc","💇"],["eye","mắt","👁️"],["ear","tai","👂"],["nose","mũi","👃"],["mouth","miệng","👄"],["hand","bàn tay","✋"],["leg","chân","🦵"],["foot","bàn chân","🦶"],["feet","hai bàn chân","🦶🦶"],["jump","nhảy","🦘"],["run","chạy","🏃"],["walk","đi bộ","🚶"],["long hair","tóc dài","👱‍♀️"],["strong arms","cánh tay khỏe","💪"]],
+    words: [["head","cái đầu","svg:head"],["hair","tóc","💇"],["eye","mắt","👁️"],["ear","tai","👂"],["nose","mũi","👃"],["mouth","miệng","👄"],["hand","bàn tay","✋"],["leg","chân","🦵"],["foot","bàn chân","🦶"],["feet","hai bàn chân","🦶🦶"],["jump","nhảy","🤸"],["run","chạy","🏃"],["walk","đi bộ","🚶"],["long hair","tóc dài","👱‍♀️"],["strong arms","cánh tay khỏe","💪"]],
     sents: [["I have two eyes.","Tớ có hai mắt.","👀"],["This is my nose.","Đây là mũi của tớ.","👃"],["I can jump.","Tớ có thể nhảy.","🦘"],["Can you run? Yes, I can.","Bạn chạy được không? Được chứ.","🏃"],["She has long hair.","Cô ấy có mái tóc dài.","👱‍♀️"],["He has strong arms.","Cậu ấy có cánh tay khỏe.","💪"]] },
   { id: 8, title: "Good Food", vi: "Món ăn ngon", icon: "🍎", c: "#ffe0c7",
     words: [["apple","quả táo","🍎"],["banana","quả chuối","🍌"],["chicken","thịt gà","🍗"],["cookie","bánh quy","🍪"],["egg","quả trứng","🥚"],["fish","cá","🐟"],["rice","cơm","🍚"],["sandwich","bánh mì kẹp","🥪"],["soup","món súp","🍲"],["lemonade","nước chanh","🍋"],["milk","sữa","🥛"],["orange juice","nước cam","🧃"],["tea","trà","🍵"],["water","nước","💧"]],
@@ -387,55 +387,54 @@ for (const r of REVIEWS) {
   r.words = src.flatMap(u => u.words); r.sents = src.flatMap(u => u.sents); r.c = "rgba(255,255,255,.2)";
 }
 
-/* ---------- Nội dung: Sounds Great 1 (Compass) — phonics, âm của từng chữ cái A–Z ----------
+/* ---------- Nội dung: Sounds Great 1 – 2nd Edition (Compass) — phonics, âm của từng chữ cái A–Z ----------
+   Unit và từ khóa theo Word List chính thức của Compass (Sounds Great 2nd Edition 1).
    Mỗi chữ: L = chữ cái, snd = ký hiệu âm, end = âm nằm cuối từ (x), words = từ khóa [en, vi, hình] */
 const SG_UNITS = [
   { no: 1, letters: [
-    { L: "a", snd: "/æ/", words: [["apple","quả táo","🍎"],["ant","con kiến","🐜"],["alligator","cá sấu","🐊"],["ax","cái rìu","🪓"]] },
-    { L: "b", snd: "/b/", words: [["bear","con gấu","🐻"],["ball","quả bóng","⚽"],["banana","quả chuối","🍌"],["bus","xe buýt","🚌"]] },
-    { L: "c", snd: "/k/", words: [["cat","con mèo","🐱"],["car","ô tô","🚗"],["cake","bánh kem","🎂"],["carrot","cà rốt","🥕"]] } ] },
+    { L: "a", snd: "/æ/", words: [["ant","con kiến","🐜"],["apple","quả táo","🍎"],["angry","tức giận","😠"],["alligator","cá sấu","🐊"]] },
+    { L: "b", snd: "/b/", words: [["bear","con gấu","🐻"],["baby","em bé","👶"],["book","quyển sách","📖"],["bird","con chim","🐦"]] },
+    { L: "c", snd: "/k/", words: [["cat","con mèo","🐱"],["cup","cái cốc","☕"],["cut","cắt","✂️"],["cookie","bánh quy","🍪"]] } ] },
   { no: 2, letters: [
-    { L: "d", snd: "/d/", words: [["dog","con chó","🐶"],["duck","con vịt","🦆"],["doll","búp bê","🪆"],["door","cánh cửa","🚪"]] },
-    { L: "e", snd: "/e/", words: [["egg","quả trứng","🥚"],["elephant","con voi","🐘"],["elf","chú lùn","🧝"],["envelope","phong bì","✉️"]] },
-    { L: "f", snd: "/f/", words: [["fish","con cá","🐟"],["frog","con ếch","🐸"],["fan","cái quạt","🪭"],["feather","lông vũ","🪶"]] } ] },
+    { L: "d", snd: "/d/", words: [["doll","búp bê","🪆"],["dog","con chó","🐶"],["desk","bàn học","svg:desk"],["duck","con vịt","🦆"]] },
+    { L: "e", snd: "/e/", words: [["elephant","con voi","🐘"],["egg","quả trứng","🥚"],["elevator","thang máy","🛗"],["elbow","khuỷu tay","svg:elbow"]] },
+    { L: "f", snd: "/f/", words: [["fish","con cá","🐟"],["fan","cái quạt","🪭"],["five","số 5","num:5"],["fat","béo","svg:fat"]] } ] },
   { no: 3, letters: [
-    { L: "g", snd: "/g/", words: [["goat","con dê","🐐"],["gift","món quà","🎁"],["gorilla","khỉ đột","🦍"],["guitar","đàn ghi-ta","🎸"]] },
-    { L: "h", snd: "/h/", words: [["hat","cái mũ","👒"],["horse","con ngựa","🐴"],["house","ngôi nhà","🏠"],["hen","gà mái","🐔"]] },
-    { L: "i", snd: "/ɪ/", words: [["igloo","nhà tuyết","svg:igloo"],["insect","côn trùng","🐛"],["iguana","kỳ nhông","🦎"],["ill","bị ốm","🤒"]] } ] },
+    { L: "g", snd: "/g/", words: [["goat","con dê","🐐"],["good","tốt, giỏi","👍"],["girl","bé gái","👧"],["gorilla","khỉ đột","🦍"]] },
+    { L: "h", snd: "/h/", words: [["house","ngôi nhà","🏠"],["hat","cái mũ","👒"],["happy","vui vẻ","😀"],["hill","ngọn đồi","svg:hill"]] },
+    { L: "i", snd: "/ɪ/", words: [["insect","côn trùng","🐛"],["ill","bị ốm","🤒"],["in","ở trong","svg:in"],["igloo","nhà tuyết","svg:igloo"]] } ] },
   { no: 4, letters: [
-    { L: "j", snd: "/dʒ/", words: [["juice","nước ép","🧃"],["jar","cái lọ","🫙"],["jet","máy bay phản lực","🛩️"],["jellyfish","con sứa","🪼"]] },
-    { L: "k", snd: "/k/", words: [["kite","con diều","🪁"],["king","nhà vua","🤴"],["key","chìa khóa","🔑"],["koala","gấu túi","🐨"]] },
-    { L: "l", snd: "/l/", words: [["lion","sư tử","🦁"],["lemon","quả chanh","🍋"],["leaf","chiếc lá","🍃"],["lamp","cái đèn","💡"]] } ] },
+    { L: "j", snd: "/dʒ/", words: [["jet","máy bay phản lực","🛩️"],["jeep","xe jeep","🚙"],["jam","mứt","🫙"],["jump","nhảy","🤸"]] },
+    { L: "k", snd: "/k/", words: [["kangaroo","chuột túi","🦘"],["key","chìa khóa","🔑"],["kick","đá","svg:kick"],["kite","con diều","🪁"]] },
+    { L: "l", snd: "/l/", words: [["leg","cái chân","🦵"],["lion","sư tử","🦁"],["lemon","quả chanh","🍋"],["look","nhìn","👀"]] } ] },
   { no: 5, letters: [
-    { L: "m", snd: "/m/", words: [["monkey","con khỉ","🐒"],["moon","mặt trăng","🌙"],["milk","sữa","🥛"],["mouse","con chuột","🐭"]] },
-    { L: "n", snd: "/n/", words: [["nose","cái mũi","👃"],["nest","tổ chim","🪺"],["net","cái lưới","🥅"],["nut","hạt","🥜"]] },
-    { L: "o", snd: "/ɑ/", words: [["octopus","bạch tuộc","🐙"],["otter","rái cá","🦦"],["olive","quả ô-liu","🫒"]] } ] },
+    { L: "m", snd: "/m/", words: [["monkey","con khỉ","🐒"],["moon","mặt trăng","🌙"],["man","người đàn ông","👨"],["mouse","con chuột","🐭"]] },
+    { L: "n", snd: "/n/", words: [["nut","hạt","🥜"],["nine","số 9","num:9"],["nose","cái mũi","👃"],["nurse","y tá","🧑‍⚕️"]] },
+    { L: "o", snd: "/ɑ/", words: [["octopus","bạch tuộc","🐙"],["ostrich","đà điểu","svg:ostrich"],["October","tháng Mười","svg:october"],["ox","con bò đực","🐂"]] } ] },
   { no: 6, letters: [
-    { L: "p", snd: "/p/", words: [["pig","con lợn","🐷"],["panda","gấu trúc","🐼"],["pizza","bánh pizza","🍕"],["pen","bút mực","🖊️"]] },
-    { L: "q", snd: "/kw/", words: [["queen","nữ hoàng","👸"],["question","câu hỏi","❓"],["quiet","yên lặng","🤫"]] },
-    { L: "r", snd: "/r/", words: [["rabbit","con thỏ","🐰"],["robot","rô-bốt","🤖"],["ring","chiếc nhẫn","💍"],["rainbow","cầu vồng","🌈"]] } ] },
+    { L: "p", snd: "/p/", words: [["pants","quần dài","👖"],["pizza","bánh pizza","🍕"],["potato","củ khoai tây","🥔"],["pen","bút mực","🖊️"]] },
+    { L: "q", snd: "/kw/", words: [["question","câu hỏi","❓"],["queen","nữ hoàng","👸"],["quilt","chăn bông","svg:quilt"],["quiet","yên lặng","🤫"]] },
+    { L: "r", snd: "/r/", words: [["robot","rô-bốt","🤖"],["red","màu đỏ","color:#e53935"],["run","chạy","🏃"],["ring","chiếc nhẫn","💍"]] } ] },
   { no: 7, letters: [
-    { L: "s", snd: "/s/", words: [["sun","mặt trời","☀️"],["sock","chiếc tất","🧦"],["snake","con rắn","🐍"],["star","ngôi sao","⭐"]] },
-    { L: "t", snd: "/t/", words: [["tiger","con hổ","🐯"],["tomato","cà chua","🍅"],["tent","cái lều","⛺"],["turtle","con rùa","🐢"]] },
-    { L: "u", snd: "/ʌ/", words: [["umbrella","cái ô","☂️"],["up","đi lên","⬆️"],["under","ở dưới","svg:under"]] } ] },
+    { L: "s", snd: "/s/", words: [["sun","mặt trời","☀️"],["sea","biển","🌊"],["sad","buồn","😢"],["sit","ngồi","🪑"]] },
+    { L: "t", snd: "/t/", words: [["tiger","con hổ","🐯"],["tall","cao","🦒"],["ten","số 10","num:10"],["tire","lốp xe","🛞"]] },
+    { L: "u", snd: "/ʌ/", words: [["umpire","trọng tài","svg:umpire"],["umbrella","cái ô","☂️"],["up","đi lên","⬆️"],["under","ở dưới","svg:under"]] },
+    { L: "v", snd: "/v/", words: [["violin","đàn vi-ô-lông","🎻"],["vest","áo gi-lê","🦺"],["van","xe tải nhỏ","🚐"],["vase","bình hoa","🏺"]] } ] },
   { no: 8, letters: [
-    { L: "v", snd: "/v/", words: [["van","xe tải nhỏ","🚐"],["vest","áo gi-lê","🦺"],["violin","đàn vi-ô-lông","🎻"],["volcano","núi lửa","🌋"]] },
-    { L: "w", snd: "/w/", words: [["watch","đồng hồ đeo tay","⌚"],["window","cửa sổ","🪟"],["worm","con sâu","🪱"],["wolf","chó sói","🐺"]] },
-    { L: "x", snd: "/ks/", end: true, words: [["box","cái hộp","📦"],["fox","con cáo","🦊"],["six","số 6","num:6"]] } ] },
-  { no: 9, letters: [
-    { L: "y", snd: "/j/", words: [["yo-yo","con yo-yo","🪀"],["yak","bò Tây Tạng","🐃"],["yarn","cuộn len","🧶"],["yellow","màu vàng","color:#fdd835"]] },
-    { L: "z", snd: "/z/", words: [["zebra","ngựa vằn","🦓"],["zero","số 0","num:0"],["zigzag","đường dích dắc","svg:zigzag"]] } ] },
+    { L: "w", snd: "/w/", words: [["watch","đồng hồ đeo tay","⌚"],["window","cửa sổ","🪟"],["wash","rửa","🧼"],["water","nước","💧"]] },
+    { L: "x", snd: "/ks/", end: true, words: [["fox","con cáo","🦊"],["box","cái hộp","📦"],["six","số 6","num:6"],["fix","sửa","🔧"]] },
+    { L: "y", snd: "/j/", words: [["yo-yo","con yo-yo","🪀"],["yellow","màu vàng","color:#fdd835"],["yawn","ngáp","🥱"],["yacht","du thuyền","🛥️"]] },
+    { L: "z", snd: "/z/", words: [["zipper","khóa kéo","svg:zipper"],["zebra","ngựa vằn","🦓"],["zoo","sở thú","svg:zoo"],["zero","số 0","num:0"]] } ] },
 ];
 const SG_REVIEWS = [
-  { no: "r1", from: [1, 2, 3], review: true },
-  { no: "r2", from: [4, 5, 6], review: true },
-  { no: "r3", from: [7, 8, 9], review: true },
+  { no: "r1", from: [1, 2, 3, 4], review: true },
+  { no: "r2", from: [5, 6, 7, 8], review: true },
 ];
 const SG_LETTERS = SG_UNITS.flatMap(u => u.letters);
 const LETTER = Object.fromEntries(SG_LETTERS.map(l => [l.L, l]));
 const UP = L => L.toUpperCase() + L;
 // Từ có "chứa" âm của chữ l không: x nằm cuối từ, các chữ khác ở đầu từ
-const hasL = (en, l) => l.end ? en.includes(l.L) : en.startsWith(l.L);
+const hasL = (en, l) => (en = en.toLowerCase(), l.end ? en.includes(l.L) : en.startsWith(l.L));
 for (const r of SG_REVIEWS) r.letters = r.from.flatMap(n => SG_UNITS[n - 1].letters);
 for (const u of [...SG_UNITS, ...SG_REVIEWS]) {
   const ls = u.letters;
@@ -462,7 +461,17 @@ const SVG = {
   sofa: '<svg viewBox="0 0 100 100"><rect x="20" y="26" width="60" height="30" rx="8" fill="#26a69a"/><rect x="8" y="44" width="20" height="34" rx="8" fill="#00897b"/><rect x="72" y="44" width="20" height="34" rx="8" fill="#00897b"/><rect x="24" y="54" width="52" height="20" rx="5" fill="#4db6ac"/><rect x="14" y="78" width="6" height="10" fill="#5d4037"/><rect x="80" y="78" width="6" height="10" fill="#5d4037"/></svg>',
   igloo: '<svg viewBox="0 0 100 100"><path d="M10 80 a40 40 0 0 1 80 0 z" fill="#e3f2fd" stroke="#90caf9" stroke-width="3"/><path d="M14 64 h72 M26 48 h48 M50 40 v8 M36 48 v16 M64 48 v16 M26 64 v16 M74 64 v16" stroke="#90caf9" stroke-width="3"/><path d="M38 80 v-12 a12 12 0 0 1 24 0 v12 z" fill="#1e3a5f"/></svg>',
   under: '<svg viewBox="0 0 100 100"><path d="M50 6 v14 M43 13 l7 7 l7 -7" stroke="#2f7de1" stroke-width="5" fill="none" stroke-linecap="round" stroke-linejoin="round"/><rect x="10" y="28" width="80" height="10" rx="3" fill="#8d6e63"/><rect x="16" y="38" width="7" height="50" fill="#6d4c41"/><rect x="77" y="38" width="7" height="50" fill="#6d4c41"/><circle cx="50" cy="72" r="16" fill="#e53935"/><path d="M36 66 q14 8 28 0" stroke="#fff" stroke-width="4" fill="none"/></svg>',
-  zigzag: '<svg viewBox="0 0 100 100"><polyline points="8,70 26,30 44,70 62,30 80,70 92,44" fill="none" stroke="#8e24aa" stroke-width="8" stroke-linejoin="round" stroke-linecap="round"/></svg>',
+  elbow: '<svg viewBox="0 0 100 100"><path d="M18 30 L52 70 L86 34" fill="none" stroke="#ffcc80" stroke-width="18" stroke-linecap="round" stroke-linejoin="round"/><circle cx="86" cy="32" r="11" fill="#ffcc80"/><path d="M14 26 l10 -8" stroke="#1e88e5" stroke-width="20" stroke-linecap="round"/><circle cx="52" cy="72" r="16" fill="none" stroke="#e53935" stroke-width="4" stroke-dasharray="6 4"/></svg>',
+  fat: '<svg viewBox="0 0 100 100"><ellipse cx="50" cy="60" rx="36" ry="30" fill="#ffb74d"/><circle cx="50" cy="30" r="18" fill="#ffb74d"/><path d="M36 18 l-4 -14 l12 8 z M64 18 l4 -14 l-12 8 z" fill="#ffb74d"/><circle cx="43" cy="28" r="3" fill="#3e2723"/><circle cx="57" cy="28" r="3" fill="#3e2723"/><path d="M45 37 q5 4 10 0" stroke="#3e2723" stroke-width="2.5" fill="none" stroke-linecap="round"/><path d="M30 52 q20 10 40 0" stroke="#fb8c00" stroke-width="3" fill="none"/></svg>',
+  hill: '<svg viewBox="0 0 100 100"><rect x="4" y="10" width="92" height="80" rx="14" fill="#e3f2fd"/><circle cx="76" cy="28" r="9" fill="#fdd835"/><path d="M4 82 Q30 30 58 52 Q76 64 96 58 V90 H4 z" fill="#66bb6a"/><path d="M4 90 Q40 70 96 80 V90 z" fill="#43a047"/></svg>',
+  in: '<svg viewBox="0 0 100 100"><path d="M14 40 h72 v46 h-72 z" fill="#c48b52"/><path d="M14 40 l-6 -14 h40 l6 14 z M86 40 l6 -14 h-40 l-6 14 z" fill="#e0a96d"/><circle cx="50" cy="52" r="13" fill="#e53935"/><path d="M50 6 v16 M43 15 l7 7 l7 -7" stroke="#2f7de1" stroke-width="5" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg>',
+  kick: '<svg viewBox="0 0 100 100"><path d="M30 8 v40 l26 22" fill="none" stroke="#1e88e5" stroke-width="14" stroke-linecap="round" stroke-linejoin="round"/><path d="M52 66 l14 10 h-10" fill="#5d4037" stroke="#5d4037" stroke-width="8" stroke-linejoin="round"/><circle cx="80" cy="62" r="14" fill="#fff" stroke="#212121" stroke-width="3"/><path d="M80 52 l7 6 l-3 8 h-8 l-3 -8 z" fill="#212121"/><path d="M90 38 l6 -6 M94 50 l6 -2" stroke="#9aa7c2" stroke-width="3" stroke-linecap="round"/></svg>',
+  october: '<svg viewBox="0 0 100 100"><rect x="12" y="16" width="76" height="72" rx="8" fill="#fff" stroke="#9aa7c2" stroke-width="3"/><rect x="12" y="16" width="76" height="22" rx="8" fill="#fb8c00"/><rect x="12" y="30" width="76" height="8" fill="#fb8c00"/><path d="M30 10 v12 M70 10 v12" stroke="#5d4037" stroke-width="5" stroke-linecap="round"/><text x="50" y="34" text-anchor="middle" font-size="15" font-weight="800" fill="#fff" font-family="sans-serif">OCT</text><text x="50" y="76" text-anchor="middle" font-size="34" font-weight="800" fill="#e65100" font-family="sans-serif">10</text></svg>',
+  ostrich: '<svg viewBox="0 0 100 100"><path d="M46 92 l4 -30 M60 92 l-2 -30" stroke="#f48fb1" stroke-width="4" stroke-linecap="round"/><ellipse cx="54" cy="56" rx="24" ry="16" fill="#424242"/><path d="M72 50 q14 -2 10 14 q-6 -6 -12 -4 z" fill="#fafafa"/><path d="M38 52 q-6 -20 -2 -38" stroke="#f8bbd0" stroke-width="6" fill="none" stroke-linecap="round"/><circle cx="36" cy="12" r="7" fill="#f8bbd0"/><path d="M30 12 l-10 3 l10 2 z" fill="#ffa726"/><circle cx="35" cy="10" r="1.8" fill="#212121"/></svg>',
+  quilt: '<svg viewBox="0 0 100 100"><g transform="rotate(-6 50 50)"><rect x="12" y="18" width="76" height="64" rx="6" fill="#fff"/><rect x="12" y="18" width="25" height="21" fill="#ef9a9a"/><rect x="63" y="18" width="25" height="21" fill="#90caf9"/><rect x="37" y="39" width="26" height="22" fill="#fff59d"/><rect x="12" y="61" width="25" height="21" fill="#a5d6a7"/><rect x="63" y="61" width="25" height="21" fill="#ce93d8"/><rect x="37" y="18" width="26" height="21" fill="#ffcc80"/><rect x="37" y="61" width="26" height="21" fill="#80deea"/><rect x="12" y="18" width="76" height="64" rx="6" fill="none" stroke="#8d6e63" stroke-width="3" stroke-dasharray="5 4"/></g></svg>',
+  umpire: '<svg viewBox="0 0 100 100"><path d="M24 92 q0 -36 26 -36 q26 0 26 36 z" fill="#212121"/><path d="M42 58 l8 14 l8 -14" fill="#fff"/><circle cx="50" cy="38" r="16" fill="#ffcc80"/><path d="M32 32 q2 -18 18 -18 q16 0 18 18 z" fill="#1e3a5f"/><path d="M64 30 h12" stroke="#1e3a5f" stroke-width="5" stroke-linecap="round"/><circle cx="44" cy="40" r="2.5" fill="#3e2723"/><circle cx="56" cy="40" r="2.5" fill="#3e2723"/><path d="M76 72 v-28" stroke="#ffcc80" stroke-width="8" stroke-linecap="round"/><path d="M70 40 h12" stroke="#ffcc80" stroke-width="6" stroke-linecap="round"/><circle cx="18" cy="76" r="8" fill="#fff" stroke="#e53935" stroke-width="2"/></svg>',
+  zipper: '<svg viewBox="0 0 100 100"><rect x="20" y="8" width="60" height="86" rx="8" fill="#5c6bc0"/><path d="M50 8 v86" stroke="#3949ab" stroke-width="2"/><path d="M44 12 h12 M44 20 h12 M44 28 h12 M44 36 h12 M44 44 h12" stroke="#cfd8dc" stroke-width="4"/><path d="M46 52 l4 40 l4 -40" fill="#7986cb"/><rect x="42" y="46" width="16" height="12" rx="3" fill="#b0bec5"/><rect x="45" y="58" width="10" height="18" rx="4" fill="#90a4ae"/></svg>',
+  zoo: '<svg viewBox="0 0 100 100"><rect x="10" y="30" width="8" height="62" fill="#6d4c41"/><rect x="82" y="30" width="8" height="62" fill="#6d4c41"/><rect x="6" y="14" width="88" height="22" rx="6" fill="#43a047"/><text x="50" y="31" text-anchor="middle" font-size="17" font-weight="900" fill="#fff" font-family="sans-serif">ZOO</text><path d="M24 40 v52 M36 40 v52 M48 40 v52 M60 40 v52 M72 40 v52" stroke="#8d6e63" stroke-width="3"/><text x="50" y="80" text-anchor="middle" font-size="26">🦒</text></svg>',
   head: '<svg viewBox="0 0 100 100"><circle cx="50" cy="52" r="30" fill="#ffcc80"/><path d="M20 46 q4 -30 30 -30 q26 0 30 30 q-12 -14 -30 -12 q-18 -2 -30 12 z" fill="#5d4037"/><circle cx="40" cy="54" r="4" fill="#3e2723"/><circle cx="60" cy="54" r="4" fill="#3e2723"/><path d="M40 68 q10 8 20 0" stroke="#3e2723" stroke-width="3.5" fill="none" stroke-linecap="round"/></svg>',
 };
 
@@ -597,7 +606,7 @@ const COURSES = [
   { key: "eow1", name: "Explore Our World 1", sub: "Explore Our World 1 · Second Edition · Lớp 1", units: UNITS, reviews: REVIEWS, games: EOW_GAMES,
     foot: "Từ vựng và mẫu câu bám theo phần Scope and Sequence của sách Explore Our World 1 (Second Edition, National Geographic Learning): mỗi unit gồm 2 nhóm từ vựng và 2 điểm ngữ pháp." },
   { key: "sg1", name: "Sounds Great 1", sub: "Sounds Great 1 · Phonics · Âm chữ cái A–Z", units: SG_UNITS, reviews: SG_REVIEWS, games: SG_GAMES,
-    foot: "Sounds Great 1 (Compass Publishing) dạy âm của từng chữ cái từ A đến Z qua các từ khóa. Cách chia unit và từ khóa ở đây là bản tự biên soạn theo đúng hướng của sách, có thể khác một chút so với sách của bé. " + (SG_LETTERS.some(hasSnd) ? "Chạm vào chữ cái để nghe tên chữ, âm của chữ (ví dụ /b/ /b/) rồi đến các từ khóa; bé nhắc theo từng âm." : "Giọng đọc của máy không phát được âm đơn lẻ như /b/, nên bé nghe âm qua từ khóa; bố mẹ hãy đọc mẫu âm (ví dụ /b/ /b/ bear) để bé nhắc theo.") },
+    foot: "Sounds Great 1 (Compass Publishing) dạy âm của từng chữ cái từ A đến Z qua các từ khóa. Cách chia unit và từ khóa theo đúng Word List của bản Second Edition. " + (SG_LETTERS.some(hasSnd) ? "Chạm vào chữ cái để nghe tên chữ, âm của chữ (ví dụ /b/ /b/) rồi đến các từ khóa; bé nhắc theo từng âm." : "Giọng đọc của máy không phát được âm đơn lẻ như /b/, nên bé nghe âm qua từ khóa; bố mẹ hãy đọc mẫu âm (ví dụ /b/ /b/ bear) để bé nhắc theo.") },
 ];
 for (const c of COURSES) {
   c.all = [...c.units, ...c.reviews]; c.scored = c.games.filter(g => g.scored); c.max = c.scored.length * 3;
@@ -1004,14 +1013,14 @@ function wpick(arr, wf) {
 const EW = Object.fromEntries(UNITS.flatMap(u => u.words.map(w => [w[0], w[2]])));
 const SGL = Object.fromEntries(SG_LETTERS.flatMap(l => l.words.map(w => [w[0], l.L])));
 // Từ khó vẽ thành tranh rõ nghĩa (tính từ, động từ, từ trừu tượng) — không dùng làm câu hỏi tranh
-const NOPIC = new Set(["hello", "goodbye", "big", "small", "tall", "short", "old", "young", "parents", "jump", "feet", "up", "under", "quiet", "ill", "question", "eating"]);
-const NOTNOUN = new Set(["hello", "goodbye", "big", "small", "tall", "short", "old", "young", "cleaning", "cooking", "eating", "sleeping", "taking a bath", "watching TV", "jump", "run", "walk", "up", "under", "quiet", "ill", "zigzag", "long hair", "strong arms"]);
+const NOPIC = new Set(["good", "in", "look", "kick", "fat", "umpire", "October", "elbow", "hello", "goodbye", "big", "small", "tall", "short", "old", "young", "parents", "jump", "feet", "up", "under", "quiet", "ill", "question", "eating"]);
+const NOTNOUN = new Set(["angry", "cut", "fat", "good", "happy", "in", "kick", "look", "sad", "sit", "wash", "yawn", "fix", "October", "hello", "goodbye", "big", "small", "tall", "short", "old", "young", "cleaning", "cooking", "eating", "sleeping", "taking a bath", "watching TV", "jump", "run", "walk", "up", "under", "quiet", "ill", "zigzag", "long hair", "strong arms"]);
 const PLURAL_ONLY = new Set(["gloves", "pants", "shoes", "socks", "parents", "feet"]);
-const MASS = new Set(["rice", "soup", "milk", "tea", "water", "lemonade", "orange juice", "juice", "chicken", "hair", "paper", "yarn"]);
-const PEOPLE = new Set(["mother", "father", "sister", "brother", "grandmother", "grandfather", "king", "queen", "elf"]);
-const NOPLURAL = new Set(["sky", "sun", "moon", "river", "fish", "jellyfish", "bathroom", "bedroom", "dining room", "kitchen", "living room"]);
+const MASS = new Set(["rice", "soup", "milk", "tea", "water", "lemonade", "orange juice", "juice", "chicken", "hair", "paper", "yarn", "jam"]);
+const PEOPLE = new Set(["baby", "girl", "man", "nurse", "umpire", "mother", "father", "sister", "brother", "grandmother", "grandfather", "king", "queen", "elf"]);
+const NOPLURAL = new Set(["sky", "sun", "moon", "sea", "zoo", "river", "fish", "jellyfish", "bathroom", "bedroom", "dining room", "kitchen", "living room"]);
 // Nhóm từ có tranh na ná nhau: không để chung một câu hỏi kẻo có hai đáp án đúng
-const CONFUSE = [["bush", "leaf", "tree"], ["lemon", "lemonade"], ["juice", "orange juice"], ["clock", "watch"], ["hen", "bird", "chicken"], ["bear", "panda", "koala", "teddy bear"], ["doll", "teddy bear"], ["dog", "wolf", "fox"], ["gorilla", "monkey"], ["iguana", "alligator"], ["goat", "yak"], ["horse", "zebra"], ["sky", "cloud"], ["living room", "sofa"], ["bedroom", "sleeping"], ["bathroom", "taking a bath"], ["kitchen", "cooking"], ["dress", "skirt"], ["jacket", "vest", "shirt"], ["hair", "long hair"], ["car", "van", "truck", "bus"], ["insect", "worm", "ant"], ["cookie", "cake"], ["hand", "gloves"]];
+const CONFUSE = [["bush", "leaf", "tree"], ["lemon", "lemonade"], ["juice", "orange juice"], ["clock", "watch"], ["hen", "bird", "chicken"], ["bear", "panda", "koala", "teddy bear"], ["doll", "teddy bear"], ["dog", "wolf", "fox"], ["gorilla", "monkey"], ["iguana", "alligator"], ["goat", "yak", "ox"], ["horse", "zebra"], ["sky", "cloud"], ["living room", "sofa"], ["bedroom", "sleeping"], ["bathroom", "taking a bath"], ["kitchen", "cooking"], ["dress", "skirt"], ["jacket", "vest", "shirt"], ["hair", "long hair"], ["car", "van", "truck", "bus", "jeep"], ["insect", "worm", "ant"], ["cookie", "cake"], ["sea", "water"], ["happy", "good"], ["sad", "angry", "ill"], ["bird", "ostrich"], ["leg", "kick", "foot"], ["hand", "gloves"]];
 const GRP = {}; CONFUSE.forEach((g, i) => g.forEach(w => (GRP[w] = GRP[w] || []).push(i)));
 const clash = (a, b) => a.en === b.en || a.e === b.e || (GRP[a.en] || []).some(i => (GRP[b.en] || []).includes(i));
 const kind = x => x.e.startsWith("color:") ? "color" : x.e.startsWith("num:") ? "num" : NOTNOUN.has(x.en) ? "other" : PLURAL_ONLY.has(x.en) ? "pl" : MASS.has(x.en) ? "mass" : "noun";
@@ -1142,7 +1151,7 @@ function genPho(c) {
   c.usedL.set(l.L, (c.usedL.get(l.L) || 0) + 1);
   // Nguyên âm chỉ lấy từ khóa của Sounds Great (âm ngắn chuẩn); phụ âm nhận thêm từ EOW nhưng bỏ ch/sh/th/wh
   const fits = x => l.end ? x.en.includes(l.L) : SGL[x.en] === l.L || (!"aeiouqx".includes(l.L) && x.en.startsWith(l.L) && x.en[1] !== "h");
-  const same = x => { const f = x.en[0]; return fits(x) || f === l.L || (LETTER[f] && LETTER[f].snd === l.snd) || (l.end && x.en.includes(l.L)); };
+  const same = x => { const f = x.en[0].toLowerCase(); return fits(x) || f === l.L || (LETTER[f] && LETTER[f].snd === l.snd) || (l.end && x.en.includes(l.L)); };
   const ok = c.pick(x => fits(x) && isImg(x));
   const kw = l.words.map(w => w[0]).find(w => w !== ok.en);
   const list = shuffle([ok, ...c.pickN(2, x => isImg(x) && !same(x), [ok])]);
@@ -1275,7 +1284,7 @@ function makeExam(eow, sg) {
   return { eow, sg, parts, done: false };
 }
 
-const EXAM = { eow: store.get("x:eow", 1), sg: store.get("x:sg", 1) };
+const EXAM = { eow: store.get("x:eow", 1), sg: Math.min(store.get("x:sg", 1), SG_UNITS.length) };
 const eowName = i => i === 0 ? "Welcome" : "Unit " + i;
 
 function examSetup() {

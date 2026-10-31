@@ -3,7 +3,8 @@
    tên chữ cái, âm phonics /b/ /æ/…) bằng Azure Neural TTS, lưu vào audio/ cùng danh mục audio/index.js.
 
    Cách dùng (chạy ở thư mục gốc của repo, cần Node 18+):
-     AZURE_SPEECH_KEY=xxxx AZURE_SPEECH_REGION=southeastasia node tools/gen-audio.mjs
+     node --env-file=.env tools/gen-audio.mjs        (key lưu trong .env, file này không đưa lên git)
+     hoặc: AZURE_SPEECH_KEY=xxxx AZURE_SPEECH_REGION=southeastasia node tools/gen-audio.mjs
    Tùy chọn:
      --voice en-US-AvaNeural   đổi giọng (mặc định en-US-AnaNeural — giọng bé gái Mỹ)
      --force                   tạo lại cả những file đã có (ví dụ sau khi đổi giọng)
